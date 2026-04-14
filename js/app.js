@@ -43,7 +43,41 @@
   function buildLanding() {
     if (!deckGrid) return;
     deckGrid.innerHTML = "";
-    decks.forEach((deck) => {
+    const orderedDecks = [...decks].sort((a, b) => {
+      if (a.id === "proverbs" && b.id !== "proverbs") return -1;
+      if (b.id === "proverbs" && a.id !== "proverbs") return 1;
+      if (a.id === "plants-1" && b.id !== "plants-1") return -1;
+      if (b.id === "plants-1" && a.id !== "plants-1") return 1;
+
+      const surfA = /^surf-olelo-(\d+)$/.exec(a.id);
+      const surfB = /^surf-olelo-(\d+)$/.exec(b.id);
+      const tropicalA = /^tropical-fruits-(\d+)$/.exec(a.id);
+      const tropicalB = /^tropical-fruits-(\d+)$/.exec(b.id);
+
+      const getLevel = (surfMatch, tropicalMatch) => {
+        if (surfMatch) return Number(surfMatch[1]);
+        if (tropicalMatch) return Number(tropicalMatch[1]);
+        return Number.MAX_SAFE_INTEGER;
+      };
+
+      const levelA = getLevel(surfA, tropicalA);
+      const levelB = getLevel(surfB, tropicalB);
+      if (levelA !== levelB) return levelA - levelB;
+
+      const getWithinLevelOrder = (surfMatch, tropicalMatch) => {
+        if (surfMatch) return 0;
+        if (tropicalMatch) return 1;
+        return 2;
+      };
+
+      const withinLevelA = getWithinLevelOrder(surfA, tropicalA);
+      const withinLevelB = getWithinLevelOrder(surfB, tropicalB);
+      if (withinLevelA !== withinLevelB) return withinLevelA - withinLevelB;
+
+      return a.title.localeCompare(b.title);
+    });
+
+    orderedDecks.forEach((deck) => {
       const btn = document.createElement("button");
       btn.type = "button";
       btn.className =

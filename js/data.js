@@ -4,8 +4,8 @@
  */
 window.DECKS = [
   {
-    id: "surf-olelo",
-    title: "Surf ʻōlelo",
+    id: "surf-olelo-1",
+    title: "Surf 1",
     subtitle: "Water, waves & voyaging",
     accent: "ocean",
     cards: [
@@ -29,6 +29,14 @@ window.DECKS = [
       { front: "Papa heʻe nalu", back: "Surfboard" },
       { front: "Kaha nalu", back: "Bodysurfing" },
       { front: "Paipo", back: "Bodyboard (short prone board, ancestor of the boogie board)" },
+    ],
+  },
+  {
+    id: "surf-olelo-2",
+    title: "Surf 2",
+    subtitle: "Water, waves & voyaging",
+    accent: "ocean",
+    cards: [
       { front: "Pae i ka nalu", back: "To ride a wave to shore, to catch a wave" },
       { front: "Piʻi mai ka nalu", back: "\"Surf's up\"; the waves are mounting" },
       { front: "Alaia", back: "Thin, finless wooden surfboard used historically" },
@@ -49,6 +57,14 @@ window.DECKS = [
       { front: "ʻAle nui", back: "Large swell" },
       { front: "Hauʻoli nalu", back: "Joyful waves" },
       { front: "Kai ʻēʻē", back: "Rising tide, surging sea" },
+    ],
+  },
+  {
+    id: "surf-olelo-3",
+    title: "Surf 3",
+    subtitle: "Water, waves & voyaging",
+    accent: "ocean",
+    cards: [
       { front: "Kai hoʻē", back: "Receding sea" },
       { front: "Mimilo", back: "Whirlpool, eddy" },
       { front: "Au", back: "Current, flow" },
@@ -69,6 +85,14 @@ window.DECKS = [
       { front: "Huki", back: "Pull on a line" },
       { front: "Hoʻopaʻa", back: "Make fast; hold firm; to bind" },
       { front: "Hoʻopae", back: "Go ashore (Hōkūleʻa)" },
+    ],
+  },
+  {
+    id: "surf-olelo-4",
+    title: "Surf 4",
+    subtitle: "Water, waves & voyaging",
+    accent: "ocean",
+    cards: [
       { front: "Waʻa", back: "Canoe" },
       { front: "Waʻa kaulua", back: "Double-hulled canoe" },
       { front: "Waʻa ʻākea", back: "Wide canoe" },
@@ -89,6 +113,14 @@ window.DECKS = [
       { front: "Mahina", back: "Moon" },
       { front: "Po", back: "Night" },
       { front: "Ao", back: "Day, cloud, world" },
+    ],
+  },
+  {
+    id: "surf-olelo-5",
+    title: "Surf 5",
+    subtitle: "Water, waves & voyaging",
+    accent: "ocean",
+    cards: [
       { front: "Mano", back: "Shark" },
       { front: "Honu", back: "Sea turtle" },
       { front: "Naiʻa", back: "Dolphin" },
@@ -112,9 +144,9 @@ window.DECKS = [
     ],
   },
   {
-    id: "tropical-fruits",
-    title: "Tropical fruits",
-    subtitle: "Placeholder deck — more soon",
+    id: "tropical-fruits-1",
+    title: "Fruits 1",
+    subtitle: "Tropical fruit vocabulary",
     accent: "fruit",
     cards: [
       { front: "Banana", back: "Soft, sweet fruit commonly eaten ripe or cooked green" },
@@ -142,6 +174,14 @@ window.DECKS = [
       { front: "Cacao pod", back: "Fruit pod that contains cacao beans for chocolate" },
       { front: "Acai berry", back: "Dark Amazon berry often used in smoothie bowls" },
       { front: "Cempedak", back: "Southeast Asian fruit related to jackfruit, very aromatic" },
+    ],
+  },
+  {
+    id: "tropical-fruits-2",
+    title: "Fruits 2",
+    subtitle: "Tropical fruit vocabulary",
+    accent: "fruit",
+    cards: [
       { front: "Salak", back: "Snake fruit with reddish scaly skin and crisp flesh" },
       { front: "Rose apple", back: "Bell-shaped fruit with light floral, watery crunch" },
       { front: "Java plum", back: "Purple fruit with astringent-sweet taste when ripe" },
@@ -167,6 +207,77 @@ window.DECKS = [
       { front: "Cupuacu", back: "Amazon fruit related to cacao with aromatic sour pulp" },
       { front: "Marang", back: "Soft, aromatic fruit related to jackfruit and breadfruit" },
       { front: "Ice cream bean", back: "Long pod fruit with fluffy sweet cottony pulp" },
+    ],
+  },
+  {
+    id: "proverbs",
+    title: "Proverbs 1",
+    subtitle: "Hawaiian idioms and wisdom",
+    accent: "ocean",
+    cards: [
+      {
+        front: "Ike i ke au nui, me ke au iki.",
+        back: "Know the big currents and the little currents.",
+      },
+      {
+        front: "A'ohe hana nui ke alu 'ia.",
+        back: "No task is too big when done together by all.",
+      },
+      {
+        front: "He ali'i ka 'āina; he kauwā ke kanaka.",
+        back: "The land is chief; people are its servants.",
+      },
+      {
+        front: "I ka 'ōlelo no ke ola, i ka 'ōlelo no ka make.",
+        back: "In speech there is life; in speech there is death.",
+      },
+      {
+        front: "Nānā ka maka; ho'olohe ka pepeiao; pa'a ka waha.",
+        back: "Observe with the eyes, listen with the ears, and close the mouth.",
+      },
+      {
+        front: "Mālama i ke kai, a mālama ke kai iā 'oe.",
+        back: "Care for the sea, and the sea will care for you.",
+      },
+      {
+        front: "Hahai nō ka ua i ka ululā'au.",
+        back: "The rain follows the forest.",
+      },
+      {
+        front: "He wa'a he moku, he moku he wa'a.",
+        back: "The canoe is an island; the island is a canoe.",
+      },
+      {
+        front: "E nānā i ke kumu.",
+        back: "Look to the source.",
+      },
+      {
+        front: "Pūpūkahi i holomua.",
+        back: "Unite in order to move forward.",
+      },
+    ],
+  },
+  {
+    id: "plants-1",
+    title: "Plants 1",
+    subtitle: "Plants of Hawai'i",
+    accent: "ocean",
+    cards: [
+      { front: "Kalo", back: "Taro; foundational staple and sacred elder sibling in Hawaiian tradition." },
+      { front: "ʻUlu", back: "Breadfruit; major canoe plant and important food source." },
+      { front: "Niu", back: "Coconut; provides food, fiber, oil, and materials for daily life." },
+      { front: "ʻUhala", back: "Hala (pandanus); leaves woven into mats, sails, and lei." },
+      { front: "Kukui", back: "Candlenut tree; state tree, source of light, medicine, and dye." },
+      { front: "Kī", back: "Ti plant; used for protection, ceremony, food wrapping, and medicine." },
+      { front: "Maiʻa", back: "Banana; versatile canoe plant with many traditional cultivars." },
+      { front: "ʻAwapuhi", back: "Shampoo ginger; valued medicinally and for body care." },
+      { front: "ʻAwa", back: "Kava; ceremonial plant used for calming and social rituals." },
+      { front: "ʻOlena", back: "Turmeric; medicine, food coloring, and ceremonial use." },
+      { front: "Koa", back: "Acacia koa; prized hardwood for canoes, tools, and carving." },
+      { front: "ʻŌhiʻa lehua", back: "Keystone native tree linked to forest and watershed health." },
+      { front: "Lauaʻe", back: "Fragrant fern used in lei-making and cultural adornment." },
+      { front: "Naupaka", back: "Coastal and mountain shrub featured in moʻolelo and lei." },
+      { front: "ʻIlima", back: "Native flower associated with lei and chiefly tradition." },
     ],
   },
 ];

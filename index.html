@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, viewport-fit=cover, maximum-scale=5"
+    />
+    <meta name="theme-color" content="#0c1222" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <title>Pono Practice — Flashcards</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="app">
+      <div id="screen-landing" class="screen is-active" data-screen="landing">
+        <header class="landing-header">
+          <h1>Pono Practice</h1>
+          <p>Choose a deck. Tap a card to flip. Swipe on the card for prev / next.</p>
+        </header>
+        <div id="deck-grid" class="deck-grid" role="list"></div>
+      </div>
+
+      <div id="screen-study" class="screen" data-screen="study">
+        <div class="study-top">
+          <button
+            type="button"
+            id="back-btn"
+            class="back-btn"
+            aria-label="Back to decks"
+          >
+            ←
+          </button>
+          <div class="study-meta">
+            <h2 id="study-title">Deck</h2>
+            <div class="progress-line" aria-hidden="true">
+              <div id="progress-fill" class="progress-line__fill" style="width: 0%"></div>
+            </div>
+            <p id="study-counter" class="counter">Card 0 of 0</p>
+          </div>
+        </div>
+
+        <div class="card-stage">
+          <p class="flip-hint">Tap card to show meaning · swipe ← → to navigate</p>
+          <div class="flashcard-wrap">
+            <button
+              type="button"
+              id="flashcard"
+              class="flashcard"
+              aria-pressed="false"
+              aria-label="Flashcard. Tap to flip."
+            >
+              <div id="flashcard-inner" class="flashcard-inner">
+                <div class="flashcard-face flashcard-face--front">
+                  <span class="flashcard-label">Hawaiian</span>
+                  <span id="face-front-text" class="flashcard-text"></span>
+                </div>
+                <div class="flashcard-face flashcard-face--back">
+                  <span class="flashcard-label">English</span>
+                  <span id="face-back-text" class="flashcard-text"></span>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="study-controls">
+          <button type="button" id="prev-btn" class="ctrl-btn" disabled>
+            Previous
+          </button>
+          <button type="button" id="next-btn" class="ctrl-btn ctrl-btn--primary">
+            Next
+          </button>
+        </div>
+      </div>
+
+      <div id="screen-finish" class="screen" data-screen="finish">
+        <div class="finish-panel">
+          <h2>Nice work!</h2>
+          <p id="finish-msg">You finished the deck.</p>
+          <button type="button" id="restart-btn" class="ctrl-btn ctrl-btn--primary">
+            Study again
+          </button>
+          <button type="button" id="home-btn" class="ctrl-btn">All decks</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/data.js"></script>
+    <script src="js/app.js"></script>
+  </body>
+</html>

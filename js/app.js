@@ -33,6 +33,33 @@
   let touchStartY = 0;
   let suppressCardClick = false;
 
+  function emojiForDeck(deck) {
+    const fixed = {
+      "proverbs-1": "🗣️",
+      "practice-1": "🤝",
+      "proverbs-2": "🔥",
+      "proverbs-3": "📜",
+      "plants-1": "🌿",
+    };
+    if (fixed[deck.id]) return fixed[deck.id];
+
+    const surfMatch = /^surf-olelo-(\d+)$/.exec(deck.id);
+    if (surfMatch) {
+      const surfEmojis = ["🏄", "🌊", "🛶", "🌬️", "🐚"];
+      const idx = Math.max(0, Number(surfMatch[1]) - 1) % surfEmojis.length;
+      return surfEmojis[idx];
+    }
+
+    const fruitMatch = /^tropical-fruits-(\d+)$/.exec(deck.id);
+    if (fruitMatch) {
+      const fruitEmojis = ["🍍", "🥭", "🍌", "🥥", "🍉"];
+      const idx = Math.max(0, Number(fruitMatch[1]) - 1) % fruitEmojis.length;
+      return fruitEmojis[idx];
+    }
+
+    return "📘";
+  }
+
   function showScreen(name) {
     [landingEl, studyEl, finishEl].forEach((el) => {
       if (!el) return;
@@ -44,8 +71,14 @@
     if (!deckGrid) return;
     deckGrid.innerHTML = "";
     const orderedDecks = [...decks].sort((a, b) => {
-      if (a.id === "proverbs" && b.id !== "proverbs") return -1;
-      if (b.id === "proverbs" && a.id !== "proverbs") return 1;
+      if (a.id === "proverbs-1" && b.id !== "proverbs-1") return -1;
+      if (b.id === "proverbs-1" && a.id !== "proverbs-1") return 1;
+      if (a.id === "practice-1" && b.id !== "practice-1") return -1;
+      if (b.id === "practice-1" && a.id !== "practice-1") return 1;
+      if (a.id === "proverbs-2" && b.id !== "proverbs-2") return -1;
+      if (b.id === "proverbs-2" && a.id !== "proverbs-2") return 1;
+      if (a.id === "proverbs-3" && b.id !== "proverbs-3") return -1;
+      if (b.id === "proverbs-3" && a.id !== "proverbs-3") return 1;
       if (a.id === "plants-1" && b.id !== "plants-1") return -1;
       if (b.id === "plants-1" && a.id !== "plants-1") return 1;
 
@@ -92,11 +125,16 @@
       title.className = "deck-tile__title";
       title.textContent = deck.title;
 
+      const emoji = document.createElement("span");
+      emoji.className = "deck-tile__emoji";
+      emoji.textContent = emojiForDeck(deck);
+      emoji.setAttribute("aria-hidden", "true");
+
       const sub = document.createElement("p");
       sub.className = "deck-tile__subtitle";
       sub.textContent = deck.subtitle || "";
 
-      btn.append(count, title, sub);
+      btn.append(count, emoji, title, sub);
       btn.addEventListener("click", () => startDeck(deck.id));
       deckGrid.appendChild(btn);
     });

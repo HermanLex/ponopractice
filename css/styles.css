@@ -160,7 +160,7 @@ body {
 
 .deck-tile__title {
   position: relative;
-  font-size: 1.15rem;
+  font-size: clamp(1.4rem, 5.6vw, 1.7rem);
   font-weight: 700;
   margin: 0 0 0.25rem;
 }
@@ -323,7 +323,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1.5rem 1.25rem;
+  padding: 1.5rem 3.75rem;
   overflow: auto;
   -webkit-overflow-scrolling: touch;
 }
@@ -343,16 +343,16 @@ body {
 }
 
 .flashcard-text {
-  font-size: clamp(1.35rem, 5.5vw, 1.75rem);
+  font-size: clamp(2.4rem, 10.5vw, 3.2rem);
   font-weight: 600;
   text-align: center;
-  line-height: 1.35;
+  line-height: 1.25;
   word-break: break-word;
   hyphens: auto;
 }
 
 .flashcard-face--back .flashcard-text {
-  font-size: clamp(1rem, 4vw, 1.2rem);
+  font-size: clamp(1.8rem, 8vw, 2.3rem);
   font-weight: 500;
   color: var(--text-muted);
 }

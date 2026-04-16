@@ -330,7 +330,7 @@ window.DECKS = [
   },
   {
     id: "practice-1",
-    title: "Practice 1",
+    title: "Practice Aloha",
     subtitle: "Ohana values and healing practices",
     accent: "ocean",
     cards: [

@@ -217,7 +217,8 @@ window.DECKS = [
     cards: [
       {
         front: "Kūlia i ka nuʻu.",
-        back: "Strive to reach the highest.\n\nStrive to do your best - Motto of Queen Kapiʻolani.",
+        back: "Strive to reach the highest.",
+        subtext: "Motto of Queen Kapiʻolani",
       },
       {
         front: "Pūpūkahi i holomua.",
@@ -225,11 +226,12 @@ window.DECKS = [
       },
       {
         front: "Ma ka hana ka ʻike.",
-        back: "In working one learns.\n\nKnowledge can be acquired by doing.",
+        back: "In working one learns.",
       },
       {
         front: "ʻUmia ka hanu.",
-        back: "Hold the breath.\n\nBe patient. Don't give up too easily.",
+        back: "Hold the breath.",
+        subtext: "Be patient. Don't give up too easily.",
       },
     ],
   },
@@ -241,19 +243,22 @@ window.DECKS = [
     cards: [
       {
         front: "ʻAʻa i ka hula, waiho i ka hilahila i ka hale.",
-        back: "When one wants to dance the hula, bashfulness should be left at home.\n\nDon’t be shy. Participate! This does not just pertain to hula.",
+        back: "When one wants to dance the hula, bashfulness should be left at home.",
+        subtext:
+          "Don't be shy. Participate! This does not just pertain to hula.",
       },
       {
         front: "Mai makaʻu i ka hana, makaʻu i ka moloā.",
-        back: "Don’t fear work, fear laziness.\n\nDon’t be lazy.",
+        back: "Don't fear work, fear laziness.",
       },
       {
         front: "Na ka ʻeleu miki.",
-        back: "(The prize) goes to the quick one.\n\nSimilar to the saying, “The early bird gets the worm.”",
+        back: "(The prize) goes to the quick one.",
+        subtext: 'Similar to "The early bird gets the worm."',
       },
       {
         front: "ʻAʻohe hana nui ke alu ʻia.",
-        back: "No task is too big when done together by all.\n\nIf everyone contributes to the task, it lightens the load.",
+        back: "No task is too big when done together by all.",
       },
     ],
   },

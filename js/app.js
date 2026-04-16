@@ -4,7 +4,7 @@
   const SWIPE_THRESHOLD = 45;
   const SWIPE_MAX_VERTICAL = 80;
 
-  /** @type {{ id: string, title: string, subtitle?: string, accent: string, cards: { front: string, back: string }[] }[]} */
+  /** @type {{ id: string, title: string, subtitle?: string, accent: string, cards: { front: string, back: string, subtext?: string }[] }[]} */
   const decks = window.DECKS || [];
 
   const landingEl = document.getElementById("screen-landing");
@@ -176,6 +176,24 @@
     return activeDeck.cards[ci];
   }
 
+  function setBackFaceContent(el, card) {
+    if (!el || !card) return;
+    el.textContent = "";
+    el.classList.remove("flashcard-text--has-sub");
+    if (card.subtext) {
+      el.classList.add("flashcard-text--has-sub");
+      const main = document.createElement("span");
+      main.className = "flashcard-text__main";
+      main.textContent = card.back;
+      const sub = document.createElement("span");
+      sub.className = "flashcard-text__sub";
+      sub.textContent = card.subtext;
+      el.append(main, sub);
+    } else {
+      el.textContent = card.back;
+    }
+  }
+
   function updateCardDisplay() {
     const card = currentCard();
     if (!activeDeck || !card) return;
@@ -187,7 +205,7 @@
     if (progressFill) progressFill.style.width = `${(pos / total) * 100}%`;
 
     if (faceFrontText) faceFrontText.textContent = card.front;
-    if (faceBackText) faceBackText.textContent = card.back;
+    if (faceBackText) setBackFaceContent(faceBackText, card);
 
     setFlipped(false);
 

@@ -40,6 +40,7 @@
       "proverbs-2": "🔥",
       "proverbs-3": "📜",
       "plants-1": "🌿",
+      "plants-2": "🪴",
     };
     if (fixed[deck.id]) return fixed[deck.id];
 
@@ -70,43 +71,31 @@
   function buildLanding() {
     if (!deckGrid) return;
     deckGrid.innerHTML = "";
+    const deckOrder = [
+      "practice-1",
+      "proverbs-1",
+      "plants-1",
+      "surf-olelo-1",
+      "tropical-fruits-1",
+      "proverbs-2",
+      "plants-2",
+      "surf-olelo-2",
+      "tropical-fruits-2",
+      "proverbs-3",
+      "surf-olelo-3",
+      "surf-olelo-4",
+      "surf-olelo-5",
+    ];
+
+    const orderIndex = (id) => {
+      const i = deckOrder.indexOf(id);
+      return i === -1 ? deckOrder.length : i;
+    };
+
     const orderedDecks = [...decks].sort((a, b) => {
-      if (a.id === "proverbs-1" && b.id !== "proverbs-1") return -1;
-      if (b.id === "proverbs-1" && a.id !== "proverbs-1") return 1;
-      if (a.id === "practice-1" && b.id !== "practice-1") return -1;
-      if (b.id === "practice-1" && a.id !== "practice-1") return 1;
-      if (a.id === "proverbs-2" && b.id !== "proverbs-2") return -1;
-      if (b.id === "proverbs-2" && a.id !== "proverbs-2") return 1;
-      if (a.id === "proverbs-3" && b.id !== "proverbs-3") return -1;
-      if (b.id === "proverbs-3" && a.id !== "proverbs-3") return 1;
-      if (a.id === "plants-1" && b.id !== "plants-1") return -1;
-      if (b.id === "plants-1" && a.id !== "plants-1") return 1;
-
-      const surfA = /^surf-olelo-(\d+)$/.exec(a.id);
-      const surfB = /^surf-olelo-(\d+)$/.exec(b.id);
-      const tropicalA = /^tropical-fruits-(\d+)$/.exec(a.id);
-      const tropicalB = /^tropical-fruits-(\d+)$/.exec(b.id);
-
-      const getLevel = (surfMatch, tropicalMatch) => {
-        if (surfMatch) return Number(surfMatch[1]);
-        if (tropicalMatch) return Number(tropicalMatch[1]);
-        return Number.MAX_SAFE_INTEGER;
-      };
-
-      const levelA = getLevel(surfA, tropicalA);
-      const levelB = getLevel(surfB, tropicalB);
-      if (levelA !== levelB) return levelA - levelB;
-
-      const getWithinLevelOrder = (surfMatch, tropicalMatch) => {
-        if (surfMatch) return 0;
-        if (tropicalMatch) return 1;
-        return 2;
-      };
-
-      const withinLevelA = getWithinLevelOrder(surfA, tropicalA);
-      const withinLevelB = getWithinLevelOrder(surfB, tropicalB);
-      if (withinLevelA !== withinLevelB) return withinLevelA - withinLevelB;
-
+      const ia = orderIndex(a.id);
+      const ib = orderIndex(b.id);
+      if (ia !== ib) return ia - ib;
       return a.title.localeCompare(b.title);
     });
 

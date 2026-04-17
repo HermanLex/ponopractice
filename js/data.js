@@ -20,7 +20,11 @@ window.DECKS = [
       { front: "Lua", back: "Pit; also used for depth" },
       { front: "Pōʻai kai", back: "Surrounded by sea" },
       { front: "Nui", back: "Great, vast (as in the deep)" },
-      { front: "\u0100nuenue", back: "Rainbow (often seen at sea)" },
+      {
+        front: "Piʻi mai ka nalu",
+        back: "The wave(s) rise or surf is up",
+        subtext: 'Commonly used to invite others to "catch the wave".',
+      },
       { front: "Ua", back: "Rain" },
       { front: "Hau", back: "Dew, ice, snow; cold" },
       { front: "Wai ola", back: "Water of life" },
@@ -28,7 +32,7 @@ window.DECKS = [
       { front: "Nalu", back: "Wave, surf" },
       { front: "Papa heʻe nalu", back: "Surfboard" },
       { front: "Kaha nalu", back: "Bodysurfing" },
-      { front: "Paipo", back: "Bodyboard (short prone board, ancestor of the boogie board)" },
+      { front: "Paipo", back: "Short prone bodyboard" },
     ],
   },
   {
@@ -324,6 +328,14 @@ window.DECKS = [
       { front: "Kī", back: "Ti plant; used for protection, ceremony, food wrapping, and medicine." },
       { front: "Maiʻa", back: "Banana; versatile canoe plant with many traditional cultivars." },
       { front: "ʻAwapuhi", back: "Shampoo ginger; valued medicinally and for body care." },
+    ],
+  },
+  {
+    id: "plants-2",
+    title: "Plants 2",
+    subtitle: "Plants of Hawai'i",
+    accent: "ocean",
+    cards: [
       { front: "ʻAwa", back: "Kava; ceremonial plant used for calming and social rituals." },
       { front: "ʻOlena", back: "Turmeric; medicine, food coloring, and ceremonial use." },
       { front: "Koa", back: "Acacia koa; prized hardwood for canoes, tools, and carving." },

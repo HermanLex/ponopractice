@@ -362,4 +362,20 @@ window.DECKS = [
       { front: "Kala", back: "Freeing each other completely." },
     ],
   },
+  {
+    id: "pule-1",
+    title: "Pule 1",
+    subtitle: "Short Hawaiian prayers",
+    accent: "ocean",
+    cards: [
+      { front: "E pule kākou.", back: "Let us pray." },
+      { front: "Mahalo ke Akua.", back: "Thanks be to God." },
+      { front: "Ke Akua pū", back: "May God be with you." },
+      {
+        front: "Ke aloha o ke Akua e kīpuni mai iā kākou.",
+        back: "The love of God enfolds us.",
+      },
+      { front: "Pule", back: "Prayer." },
+    ],
+  },
 ];

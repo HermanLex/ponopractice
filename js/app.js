@@ -11,6 +11,8 @@
   const studyEl = document.getElementById("screen-study");
   const finishEl = document.getElementById("screen-finish");
   const deckGrid = document.getElementById("deck-grid");
+  const deckGridExtra = document.getElementById("deck-grid-extra");
+  const deckSeeMoreBtn = document.getElementById("deck-see-more");
   const backBtn = document.getElementById("back-btn");
   const studyTitle = document.getElementById("study-title");
   const progressFill = document.getElementById("progress-fill");
@@ -37,6 +39,7 @@
     const fixed = {
       "proverbs-1": "🗣️",
       "practice-1": "🤝",
+      "pule-1": "🙏",
       "proverbs-2": "🔥",
       "proverbs-3": "📜",
       "plants-1": "🌿",
@@ -61,6 +64,35 @@
     return "📘";
   }
 
+  function createDeckTile(deck) {
+    const btn = document.createElement("button");
+    btn.type = "button";
+    btn.className =
+      "deck-tile deck-tile--" + (deck.accent === "fruit" ? "fruit" : "ocean");
+    btn.setAttribute("aria-label", `Open deck: ${deck.title}, ${deck.cards.length} cards`);
+
+    const count = document.createElement("span");
+    count.className = "deck-tile__count";
+    count.textContent = `${deck.cards.length} cards`;
+
+    const title = document.createElement("span");
+    title.className = "deck-tile__title";
+    title.textContent = deck.title;
+
+    const emoji = document.createElement("span");
+    emoji.className = "deck-tile__emoji";
+    emoji.textContent = emojiForDeck(deck);
+    emoji.setAttribute("aria-hidden", "true");
+
+    const sub = document.createElement("p");
+    sub.className = "deck-tile__subtitle";
+    sub.textContent = deck.subtitle || "";
+
+    btn.append(count, emoji, title, sub);
+    btn.addEventListener("click", () => startDeck(deck.id));
+    return btn;
+  }
+
   function showScreen(name) {
     [landingEl, studyEl, finishEl].forEach((el) => {
       if (!el) return;
@@ -71,8 +103,11 @@
   function buildLanding() {
     if (!deckGrid) return;
     deckGrid.innerHTML = "";
+    if (deckGridExtra) deckGridExtra.innerHTML = "";
+
     const deckOrder = [
       "practice-1",
+      "pule-1",
       "proverbs-1",
       "plants-1",
       "surf-olelo-1",
@@ -99,34 +134,44 @@
       return a.title.localeCompare(b.title);
     });
 
-    orderedDecks.forEach((deck) => {
-      const btn = document.createElement("button");
-      btn.type = "button";
-      btn.className =
-        "deck-tile deck-tile--" + (deck.accent === "fruit" ? "fruit" : "ocean");
-      btn.setAttribute("aria-label", `Open deck: ${deck.title}, ${deck.cards.length} cards`);
+    const fruits1Idx = deckOrder.indexOf("tropical-fruits-1");
+    const primaryIdSet =
+      fruits1Idx === -1
+        ? new Set(deckOrder)
+        : new Set(deckOrder.slice(0, fruits1Idx + 1));
+    const primaryDecks = orderedDecks.filter((d) => primaryIdSet.has(d.id));
+    const extraDecks = orderedDecks.filter((d) => !primaryIdSet.has(d.id));
 
-      const count = document.createElement("span");
-      count.className = "deck-tile__count";
-      count.textContent = `${deck.cards.length} cards`;
-
-      const title = document.createElement("span");
-      title.className = "deck-tile__title";
-      title.textContent = deck.title;
-
-      const emoji = document.createElement("span");
-      emoji.className = "deck-tile__emoji";
-      emoji.textContent = emojiForDeck(deck);
-      emoji.setAttribute("aria-hidden", "true");
-
-      const sub = document.createElement("p");
-      sub.className = "deck-tile__subtitle";
-      sub.textContent = deck.subtitle || "";
-
-      btn.append(count, emoji, title, sub);
-      btn.addEventListener("click", () => startDeck(deck.id));
-      deckGrid.appendChild(btn);
+    primaryDecks.forEach((deck) => {
+      deckGrid.appendChild(createDeckTile(deck));
     });
+
+    if (deckGridExtra && deckSeeMoreBtn) {
+      extraDecks.forEach((deck) => {
+        deckGridExtra.appendChild(createDeckTile(deck));
+      });
+      const iconEl = deckSeeMoreBtn.querySelector(".deck-see-more__icon");
+      const labelEl = deckSeeMoreBtn.querySelector(".deck-see-more__label");
+
+      const setExtraDecksExpanded = (expanded) => {
+        deckGridExtra.hidden = !expanded;
+        deckSeeMoreBtn.setAttribute("aria-expanded", expanded ? "true" : "false");
+        if (iconEl) iconEl.textContent = expanded ? "−" : "+";
+        if (labelEl) labelEl.textContent = expanded ? "See fewer cards" : "See more cards";
+      };
+
+      if (extraDecks.length > 0) {
+        deckSeeMoreBtn.hidden = false;
+        setExtraDecksExpanded(false);
+        deckSeeMoreBtn.onclick = () => {
+          setExtraDecksExpanded(deckGridExtra.hidden);
+        };
+      } else {
+        deckSeeMoreBtn.hidden = true;
+        deckSeeMoreBtn.onclick = null;
+        deckGridExtra.hidden = true;
+      }
+    }
   }
 
   function shuffleInPlace(arr) {

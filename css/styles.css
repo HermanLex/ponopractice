@@ -93,6 +93,67 @@ body {
   }
 }
 
+.deck-see-more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  width: 100%;
+  margin: 0.85rem 0 0;
+  min-height: var(--tap-size);
+  padding: 0.65rem 1rem;
+  border: 1px dashed var(--border);
+  border-radius: var(--radius-sm);
+  background: rgba(45, 212, 191, 0.06);
+  color: var(--accent-ocean);
+  font: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+  transition: background 0.15s ease, border-color 0.15s ease;
+}
+
+.deck-see-more:hover {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: rgba(45, 212, 191, 0.35);
+}
+
+.deck-see-more:active {
+  opacity: 0.92;
+}
+
+.deck-see-more:focus-visible {
+  outline: 3px solid var(--accent-ocean);
+  outline-offset: 2px;
+}
+
+.deck-see-more__icon {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.deck-see-more__label {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.deck-grid--extra {
+  margin-top: 0.85rem;
+}
+
+/* Ensure [hidden] wins over .deck-grid { display: grid } so extra decks stay collapsed until toggled */
+#deck-grid-extra[hidden] {
+  display: none !important;
+  margin: 0 !important;
+  padding: 0;
+  min-height: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
 .deck-tile {
   position: relative;
   border: 1px solid var(--border);
@@ -470,6 +531,9 @@ body {
     transition: none;
   }
   .deck-tile {
+    transition: none;
+  }
+  .deck-see-more {
     transition: none;
   }
   .progress-line__fill {

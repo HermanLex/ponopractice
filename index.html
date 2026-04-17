@@ -23,6 +23,18 @@
           </p>
         </header>
         <div id="deck-grid" class="deck-grid" role="list"></div>
+        <button
+          type="button"
+          id="deck-see-more"
+          class="deck-see-more"
+          hidden
+          aria-expanded="false"
+          aria-controls="deck-grid-extra"
+        >
+          <span class="deck-see-more__icon" aria-hidden="true">+</span>
+          <span class="deck-see-more__label">See more cards</span>
+        </button>
+        <div id="deck-grid-extra" class="deck-grid deck-grid--extra" role="list" hidden></div>
       </div>
 
       <div id="screen-study" class="screen" data-screen="study">

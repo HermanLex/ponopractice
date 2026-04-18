@@ -413,7 +413,7 @@ window.DECKS = [
   {
     id: "nayas-bday-friends",
     title: "Naya's bday friends",
-    subtitle: "Kids & their families",
+    subtitle: "Key Ohana names",
     accent: "fruit",
     hideFromMainLanding: true,
     labelFront: "Parents",
@@ -431,11 +431,13 @@ window.DECKS = [
       { front: "Paul & Kathryn", back: "Cadence" },
       { front: "Chase & Jenna", back: "Dune & Poppy" },
       { front: "Aaron & Nicole", back: "Averie & Maddie" },
+      { front: "Todd & Allison", back: "Scottie & ??" },
+      { front: "Ryan & Stacey", back: "Sage" },
     ],
   },
   {
     id: "ttp-focus-1",
-    title: "Focus 1",
+    title: "Naya's focus",
     subtitle: "Practice subset",
     accent: "fruit",
     hideFromMainLanding: true,
@@ -450,6 +452,8 @@ window.DECKS = [
       { front: "Kelsey & Kainoa", back: "Kela & Kana'i" },
       { front: "Chase & Jenna", back: "Dune & Poppy" },
       { front: "Aaron & Nicole", back: "Averie & Maddie" },
+      { front: "Todd & Allison", back: "Scottie & ??" },
+      { front: "Ryan & Stacey", back: "Sage" },
     ],
   },
 ];

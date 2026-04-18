@@ -4,7 +4,7 @@
   const SWIPE_THRESHOLD = 45;
   const SWIPE_MAX_VERTICAL = 80;
 
-  /** @type {{ id: string, title: string, subtitle?: string, accent: string, cards: { front: string, back: string, subtext?: string }[] }[]} */
+  /** @type {{ id: string, title: string, subtitle?: string, accent: string, hideFromMainLanding?: boolean, labelFront?: string, labelBack?: string, cards: { front: string, back: string, subtext?: string }[] }[]} */
   const decks = window.DECKS || [];
 
   const landingEl = document.getElementById("screen-landing");
@@ -20,6 +20,8 @@
   const flashcardBtn = document.getElementById("flashcard");
   const faceFrontText = document.getElementById("face-front-text");
   const faceBackText = document.getElementById("face-back-text");
+  const faceFrontLabel = document.getElementById("face-front-label");
+  const faceBackLabel = document.getElementById("face-back-label");
   const prevBtn = document.getElementById("prev-btn");
   const nextBtn = document.getElementById("next-btn");
   const finishMsg = document.getElementById("finish-msg");
@@ -45,6 +47,8 @@
       "plants-1": "🌿",
       "plants-2": "🪴",
       "respect-1": "🏞️",
+      "nayas-bday-friends": "🎂",
+      "ttp-focus-1": "🎯",
     };
     if (fixed[deck.id]) return fixed[deck.id];
 
@@ -129,20 +133,38 @@
       return i === -1 ? deckOrder.length : i;
     };
 
-    const orderedDecks = [...decks].sort((a, b) => {
+    const landingFilterRaw = document.body?.dataset?.landingDeckFilter?.trim();
+    const landingFilterIds = landingFilterRaw
+      ? landingFilterRaw.split(",").map((s) => s.trim()).filter(Boolean)
+      : [];
+    const hasLandingFilter = landingFilterIds.length > 0;
+
+    const catalog = hasLandingFilter
+      ? decks
+      : decks.filter((d) => !d.hideFromMainLanding);
+    const orderedCatalog = [...catalog].sort((a, b) => {
       const ia = orderIndex(a.id);
       const ib = orderIndex(b.id);
       if (ia !== ib) return ia - ib;
       return a.title.localeCompare(b.title);
     });
+    const visibleDecks = hasLandingFilter
+      ? landingFilterIds
+          .map((id) => orderedCatalog.find((d) => d.id === id))
+          .filter(Boolean)
+      : orderedCatalog;
 
     const fruits1Idx = deckOrder.indexOf("tropical-fruits-1");
     const primaryIdSet =
       fruits1Idx === -1
         ? new Set(deckOrder)
         : new Set(deckOrder.slice(0, fruits1Idx + 1));
-    const primaryDecks = orderedDecks.filter((d) => primaryIdSet.has(d.id));
-    const extraDecks = orderedDecks.filter((d) => !primaryIdSet.has(d.id));
+    let primaryDecks = visibleDecks.filter((d) => primaryIdSet.has(d.id));
+    let extraDecks = visibleDecks.filter((d) => !primaryIdSet.has(d.id));
+    if (hasLandingFilter) {
+      primaryDecks = visibleDecks.slice();
+      extraDecks = [];
+    }
 
     primaryDecks.forEach((deck) => {
       deckGrid.appendChild(createDeckTile(deck));
@@ -235,6 +257,9 @@
     if (!activeDeck || !card) return;
 
     if (studyTitle) studyTitle.textContent = activeDeck.title;
+    if (faceFrontLabel)
+      faceFrontLabel.textContent = activeDeck.labelFront || "Hawaiian";
+    if (faceBackLabel) faceBackLabel.textContent = activeDeck.labelBack || "English";
     const total = order.length;
     const pos = index + 1;
     if (counterEl) counterEl.textContent = `Card ${pos} of ${total}`;
@@ -363,6 +388,9 @@
   });
 
   buildLanding();
+  if (document.body?.dataset?.landingDeckFilter?.trim() && homeBtn) {
+    homeBtn.textContent = "Back to menu";
+  }
   bindGestures();
   onHashRoute();
 })();

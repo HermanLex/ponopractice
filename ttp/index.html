@@ -9,32 +9,20 @@
     <meta name="theme-color" content="#0c1222" />
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
-    <title>Pono Practice — Flashcards</title>
-    <link rel="stylesheet" href="css/styles.css" />
+    <title>Naya's bday friends — Pono Practice</title>
+    <link rel="stylesheet" href="../css/styles.css" />
   </head>
-  <body>
+  <body data-landing-deck-filter="nayas-bday-friends,ttp-focus-1">
     <div class="app">
       <div id="screen-landing" class="screen is-active" data-screen="landing">
         <header class="landing-header">
-          <h1>Hawai'ian pono practice</h1>
+          <h1>Naya's bday friends</h1>
           <p>
-            Practice Hawai'ian sayings and words.<br />Choose a deck. Tap a card to flip. Swipe
-            on the card for prev / next.
+            Practice matching kids with their families.<br />Tap a card to flip. Swipe on the card
+            for prev / next.
           </p>
         </header>
         <div id="deck-grid" class="deck-grid" role="list"></div>
-        <button
-          type="button"
-          id="deck-see-more"
-          class="deck-see-more"
-          hidden
-          aria-expanded="false"
-          aria-controls="deck-grid-extra"
-        >
-          <span class="deck-see-more__icon" aria-hidden="true">+</span>
-          <span class="deck-see-more__label">See more cards</span>
-        </button>
-        <div id="deck-grid-extra" class="deck-grid deck-grid--extra" role="list" hidden></div>
       </div>
 
       <div id="screen-study" class="screen" data-screen="study">
@@ -43,7 +31,7 @@
             type="button"
             id="back-btn"
             class="back-btn"
-            aria-label="Back to decks"
+            aria-label="Back to deck menu"
           >
             ←
           </button>
@@ -57,7 +45,7 @@
         </div>
 
         <div class="card-stage">
-          <p class="flip-hint">Tap card to show meaning · swipe ← → to navigate</p>
+          <p class="flip-hint">Tap card for names · swipe ← → to navigate</p>
           <div class="flashcard-wrap">
             <button
               type="button"
@@ -97,12 +85,12 @@
           <button type="button" id="restart-btn" class="ctrl-btn ctrl-btn--primary">
             Study again
           </button>
-          <button type="button" id="home-btn" class="ctrl-btn">All decks</button>
+          <button type="button" id="home-btn" class="ctrl-btn">Back to menu</button>
         </div>
       </div>
     </div>
 
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
   </body>
 </html>

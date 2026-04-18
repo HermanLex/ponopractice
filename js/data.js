@@ -378,4 +378,36 @@ window.DECKS = [
       { front: "Pule", back: "Prayer." },
     ],
   },
+  {
+    id: "respect-1",
+    title: "Respect",
+    subtitle: "Explore Hawaiʻi with pono",
+    accent: "ocean",
+    cards: [
+      {
+        front: "E ʻae mai",
+        back: "Please allow me.",
+        subtext:
+          "Ask permission, announce your presence to the ʻāina and acknowledge any animals, spirits and plants.",
+      },
+      {
+        front: "Nānā pono",
+        back: "Observe carefully.",
+        subtext:
+          "be still; notice birds, ferns, trees, and other animals. remember you're a visitor.",
+      },
+      {
+        front: "Hōʻihi",
+        back: "Respect.",
+        subtext:
+          "Keep to trails, keep voices low, and be mindful of your impact on the ecosystem.",
+      },
+      {
+        front: "Mahalo i ka ʻāina",
+        back: "Thank the land.",
+        subtext:
+          "Before leaving, offer gratitude for the experience and the safety provided by the forest.",
+      },
+    ],
+  },
 ];

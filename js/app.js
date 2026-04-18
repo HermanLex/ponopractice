@@ -44,6 +44,7 @@
       "proverbs-3": "📜",
       "plants-1": "🌿",
       "plants-2": "🪴",
+      "respect-1": "🏞️",
     };
     if (fixed[deck.id]) return fixed[deck.id];
 
@@ -120,6 +121,7 @@
       "surf-olelo-3",
       "surf-olelo-4",
       "surf-olelo-5",
+      "respect-1",
     ];
 
     const orderIndex = (id) => {

@@ -433,6 +433,7 @@ window.DECKS = [
       { front: "Aaron & Nicole", back: "Averie & Maddie" },
       { front: "Todd & Allison", back: "Scottie & ??" },
       { front: "Ryan & Stacey", back: "Sage" },
+      { front: "Saerom & Limon", back: "Mason" },
     ],
   },
   {
@@ -454,6 +455,7 @@ window.DECKS = [
       { front: "Aaron & Nicole", back: "Averie & Maddie" },
       { front: "Todd & Allison", back: "Scottie & ??" },
       { front: "Ryan & Stacey", back: "Sage" },
+      { front: "Saerom & Limon", back: "Mason" },
     ],
   },
 ];

@@ -140,6 +140,11 @@ body {
   text-underline-offset: 0.15em;
 }
 
+a.deck-see-more {
+  text-decoration: none;
+  color: var(--accent-ocean);
+}
+
 .deck-grid--extra {
   margin-top: 0.85rem;
 }
@@ -538,6 +543,102 @@ body {
   }
   .progress-line__fill {
     transition: none;
+  }
+}
+
+/* TTP — table reference (child name | parents) */
+.ttp-table-page__back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0 0 1rem;
+  padding: 0.4rem 0;
+  min-height: var(--tap-size);
+  color: var(--accent-ocean);
+  font-weight: 600;
+  font-size: 0.95rem;
+  text-decoration: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.ttp-table-page__back:hover {
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
+.ttp-table-page__back:focus-visible {
+  outline: 3px solid var(--accent-ocean);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+.ttp-table-section {
+  margin-top: 1.5rem;
+}
+
+.ttp-table-section:first-of-type {
+  margin-top: 0.5rem;
+}
+
+.ttp-table-section h2 {
+  margin: 0 0 0.5rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.ttp-table-section .counter {
+  margin: 0 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.ttp-table-wrap {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--surface);
+}
+
+.ttp-records-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.ttp-records-table th,
+.ttp-records-table td {
+  padding: 0.65rem 0.85rem;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--border);
+}
+
+.ttp-records-table tbody tr:last-child th,
+.ttp-records-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.ttp-records-table thead th {
+  width: 38%;
+  font-weight: 600;
+  color: var(--accent-fruit);
+  background: rgba(251, 191, 36, 0.06);
+}
+
+.ttp-records-table tbody th {
+  width: 38%;
+  font-weight: 600;
+  color: var(--text);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+@media (min-width: 480px) {
+  .ttp-records-table thead th,
+  .ttp-records-table tbody th {
+    width: 32%;
   }
 }
 

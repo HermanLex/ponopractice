@@ -15,7 +15,10 @@
       <header class="landing-header">
         <a class="ttp-table-page__back" href="index.html">← Back to decks</a>
         <h1>Family table</h1>
-        <p>Child names in the first column; parents in the second (same data as the flashcards).</p>
+        <p>
+          Child names in the first column; parents in the second; gifts in the third (same data as
+          the flashcards, plus gift notes).
+        </p>
       </header>
       <div id="ttp-tables-root" class="ttp-tables-root"></div>
     </div>
@@ -55,7 +58,7 @@
 
           var thead = document.createElement("thead");
           var hr = document.createElement("tr");
-          ["Child", "Parents"].forEach(function (label) {
+          ["Child", "Parents", "Gift"].forEach(function (label) {
             var th = document.createElement("th");
             th.setAttribute("scope", "col");
             th.textContent = label;
@@ -72,8 +75,11 @@
             thChild.textContent = card.back;
             var tdParents = document.createElement("td");
             tdParents.textContent = card.front;
+            var tdGift = document.createElement("td");
+            tdGift.textContent = card.gift != null ? String(card.gift) : "";
             tr.appendChild(thChild);
             tr.appendChild(tdParents);
+            tr.appendChild(tdGift);
             tbody.appendChild(tr);
           });
           table.appendChild(tbody);
